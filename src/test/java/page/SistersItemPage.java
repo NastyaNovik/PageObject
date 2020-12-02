@@ -11,15 +11,19 @@ public class SistersItemPage extends AbstractPage{
     @FindBy(xpath = "//a[@class=\"b-btn basket blue buy\"]")
     private WebElement addToBasket;
 
-    @FindBy(xpath = "//*[@id=\"added\"]/div/div/a[3]")
+    @FindBy(xpath = "//a[@class=\"b-btn\"]")
+    //@FindBy(xpath = "//*[@id=\"added\"]/div/div/a[3]")
     private WebElement goToBasket;
 
     public SistersItemPage (WebDriver driver) {
         super(driver);
     }
-    public SistersBasketPage addItemToBasket (){
+    public SistersItemPage addItemToBasket () {
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.elementToBeClickable(addToBasket)).click();
+        return this;
+    }
+    public SistersBasketPage goToBasket(){
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.elementToBeClickable(goToBasket)).click();
         return new SistersBasketPage(driver);

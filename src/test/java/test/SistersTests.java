@@ -12,6 +12,7 @@ import page.SistersHomePage;
 public class SistersTests {
     private WebDriver driver;
     private ChromeOptions options;
+
     @BeforeMethod(alwaysRun = true)
     public void createDriver() {
         ChromeOptions option =new ChromeOptions();
@@ -20,19 +21,35 @@ public class SistersTests {
 
     }
     @Test
-    public void addItemsToBasketTest(){
-        int countOfItems = new SistersHomePage(driver)
+    public void addItemToBasketTest(){
+        String countOfItems = new SistersHomePage(driver)
+                .openPage()
+                .inputItemArticle()
+                .chooseItem()
+                .addItemToBasket()
+                .goToBasket()
+                .getCountOfItems();
+
+        Assert.assertEquals(countOfItems, "1");
+    }
+    @Test
+    public void decreaseItemInBasketTest(){
+        String countOfItems = new SistersHomePage(driver)
                 .openPage()
                 .inputItemArticle()
                 .chooseItem ()
                 .addItemToBasket()
+                .goToBasket()
+                .goToItemPage()
+                .addItemToBasket()
+                .goToBasket()
+                .decreaseItemInBasket()
                 .getCountOfItems();
-
-        Assert.assertEquals(countOfItems, 1);
+        Assert.assertEquals(countOfItems, "1");
     }
 
     @AfterMethod
     public void closeDriver(){
-        driver.close();
+        driver.quit();
     }
 }

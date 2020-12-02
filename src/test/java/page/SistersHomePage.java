@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SistersHomePage extends AbstractPage{
-    private static String itemArticle = "ПЛАТЬЕ ZIT 20 35801TR - БЕЖЕВЫЙ";
+    private static String itemArticle = "Zit 20 35801tr";
     private static final String HOMEPAGE_URL="https://sisters.by/";
 
     @FindBy(xpath = "//input[@class=\"b-header-search\"]")
