@@ -11,6 +11,7 @@ import page.SistersHomePage;
 
 public class SistersTests {
     private WebDriver driver;
+    private static String itemArticle = "Zit 20 35801tr";
     private ChromeOptions options;
 
     @BeforeMethod(alwaysRun = true)
@@ -24,7 +25,7 @@ public class SistersTests {
     public void addItemToBasketTest(){
         String countOfItems = new SistersHomePage(driver)
                 .openPage()
-                .inputItemArticle()
+                .inputItemArticle(itemArticle)
                 .chooseItem()
                 .addItemToBasket()
                 .goToBasket()
@@ -36,7 +37,7 @@ public class SistersTests {
     public void decreaseItemInBasketTest(){
         String countOfItems = new SistersHomePage(driver)
                 .openPage()
-                .inputItemArticle()
+                .inputItemArticle(itemArticle)
                 .chooseItem ()
                 .addItemToBasket()
                 .goToBasket()
