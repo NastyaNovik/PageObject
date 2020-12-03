@@ -12,7 +12,6 @@ public class SistersItemPage extends AbstractPage{
     private WebElement addToBasket;
 
     @FindBy(xpath = "//a[@class=\"b-btn\"]")
-    //@FindBy(xpath = "//*[@id=\"added\"]/div/div/a[3]")
     private WebElement goToBasket;
 
     public SistersItemPage (WebDriver driver) {
